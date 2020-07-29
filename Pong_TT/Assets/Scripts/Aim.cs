@@ -5,33 +5,43 @@ public class Aim : MonoBehaviour
 {
     [SerializeField] private Ball _ball;
     [SerializeField] private GameObject _arrow;
+    [SerializeField] private GameObject _sprite;
 
     private Camera _camera;
     private bool _moveFlag;
     private RaycastHit _raycastHit;
     private float _distanceToBall;
     private float _maxDistanceFromAimToTarget;
-    private Vector3 _scaleBefore;
+    private Vector3 _arrowLocaleScaleBefore;
+    private Vector3 _positionBeforeFire;
 
     private void Start()
     {
         _distanceToBall = Vector3.Distance(_ball.transform.position, transform.position);
-        _scaleBefore = transform.localScale;
-        _arrow.transform.localScale = _scaleBefore * _distanceToBall * 0.2f;
+        _arrowLocaleScaleBefore = transform.localScale;
+        _sprite.transform.localScale = _arrowLocaleScaleBefore * _distanceToBall * 0.2f;
     }
 
     public void PrepareToFire()
     {
         _camera = GameController.instance.GetCamera();
         _maxDistanceFromAimToTarget = GameController.instance.GetMaxDistanceFromAimToTarget();
+        _positionBeforeFire = transform.position;
         _moveFlag = true;
     }
 
     public void Fire()
     {
-        _moveFlag = false;
-        _ball.MoveToTarget(transform, _distanceToBall);
-        gameObject.SetActive(false);
+        if (_positionBeforeFire != transform.position)
+        {
+            _moveFlag = false;
+            _ball.MoveToTarget(transform, _distanceToBall);
+            gameObject.SetActive(false);
+        }
+        else
+        {
+            _moveFlag = false;
+        }
     }
 
     private void MoveToNewPoint()
@@ -48,12 +58,15 @@ public class Aim : MonoBehaviour
         if (_distanceToBall < _maxDistanceFromAimToTarget)
         {
             transform.position = newPoint;
-            _arrow.transform.localScale = _scaleBefore * _distanceToBall * 0.2f;
+            _sprite.transform.localScale = _arrowLocaleScaleBefore * _distanceToBall * 0.2f;
         }
     }
 
     private void Update()
     {
+        Vector3 rotation = _arrow.transform.localPosition;
+        rotation.x = 0;
+        _arrow.transform.localPosition = rotation;
         _arrow.transform.LookAt(_ball.transform);
         
         if (_moveFlag)

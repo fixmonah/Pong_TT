@@ -4,11 +4,10 @@
     <list default="true" id="c6db1fe1-3e7a-48c1-9152-dc04906e675f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pong_TT/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pong_TT/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Pong_TT/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Pong_TT/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Target.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Target.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Ball.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Ball.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GameField.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GameField.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scene/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Aim.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Aim.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameField.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,18 +24,20 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameField.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Target.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Enemy.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/UIController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Ball.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D1422B3F-C937-4601-8C92-EDA852993B93/24/55cc4b11/WaitForSeconds.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Aim.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Target.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Ball.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Enemy.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameField.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/GameController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/UIController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Aim.cs" />
       </list>
     </option>
   </component>
@@ -79,7 +80,7 @@
       <option name="presentableId" value="Default" />
       <updated>1596005768888</updated>
       <workItem from="1596005773467" duration="5677000" />
-      <workItem from="1596020033301" duration="15424000" />
+      <workItem from="1596020033301" duration="21617000" />
     </task>
     <servers />
   </component>

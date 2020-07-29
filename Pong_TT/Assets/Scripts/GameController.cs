@@ -29,10 +29,14 @@ public class GameController : MonoBehaviour
     [SerializeField] private GameField _gameField;
     [SerializeField] private Camera _camera;
     [Header("Info")] 
-    [SerializeField] private int level;
+    [SerializeField] private int _level;
 
     #region Getter/Setter
 
+    public int GetLevel()
+    {
+        return _level;
+    }
     public float GetEnemySpeed()
     {
         return _enemySpeed;
@@ -77,7 +81,7 @@ public class GameController : MonoBehaviour
 
     public void AllTargetDown()
     {
-        level++;
+        _level++;
         _enemySpeed += _enemySpeedFactor;
         StartCoroutine(RestartGameField());
     }
