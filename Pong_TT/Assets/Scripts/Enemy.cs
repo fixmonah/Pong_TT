@@ -15,4 +15,13 @@ public class Enemy : MonoBehaviour
     {
         
     }
+    
+    private void OnCollisionEnter(Collision other)
+    {
+        Ball hitObject = other.gameObject.GetComponent<Ball>();
+        if (hitObject != null)
+        {
+            GameController.instance.EnemyHitBall();
+        }
+    }
 }
