@@ -12,12 +12,18 @@ public class Aim : MonoBehaviour
     private float _distanceToBall;
     private float _maxDistanceFromAimToTarget;
     private Vector3 _scaleBefore;
-    
+
+    private void Start()
+    {
+        _distanceToBall = Vector3.Distance(_ball.transform.position, transform.position);
+        _scaleBefore = transform.localScale;
+        _arrow.transform.localScale = _scaleBefore * _distanceToBall * 0.2f;
+    }
+
     public void PrepareToFire()
     {
         _camera = GameController.instance.GetCamera();
         _maxDistanceFromAimToTarget = GameController.instance.GetMaxDistanceFromAimToTarget();
-        _scaleBefore = transform.localScale;
         _moveFlag = true;
     }
 

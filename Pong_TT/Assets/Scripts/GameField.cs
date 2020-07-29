@@ -23,6 +23,10 @@ public class GameField : MonoBehaviour
     {
         return _aim;
     }
+    public Ball GetBall()
+    {
+        return _ball;
+    }
 
     #endregion
     
@@ -74,7 +78,7 @@ public class GameField : MonoBehaviour
 
     public void RestartEnemy()
     {
-        _enemy.transform.position = _enemyDefaultPoint.position;
+        _enemy.ResetPosition(_enemyDefaultPoint.position);
     }
 
     public void RestartTarget()

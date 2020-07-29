@@ -776,17 +776,17 @@ PrefabInstance:
     - target: {fileID: 5246455063948698675, guid: 83431737cb5bd424b832ef2217c2833c,
         type: 3}
       propertyPath: _enemySpeed
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5246455063948698675, guid: 83431737cb5bd424b832ef2217c2833c,
         type: 3}
       propertyPath: _enemySpeedMinimum
-      value: 1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5246455063948698675, guid: 83431737cb5bd424b832ef2217c2833c,
         type: 3}
       propertyPath: _enemySpeedFactor
-      value: 0.1
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5497969977077864499, guid: 83431737cb5bd424b832ef2217c2833c,
         type: 3}

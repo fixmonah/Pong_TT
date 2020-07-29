@@ -28,7 +28,8 @@ public class GameController : MonoBehaviour
     [Header("Link")] 
     [SerializeField] private GameField _gameField;
     [SerializeField] private Camera _camera;
-
+    [Header("Info")] 
+    [SerializeField] private int level;
 
     #region Getter/Setter
 
@@ -76,6 +77,8 @@ public class GameController : MonoBehaviour
 
     public void AllTargetDown()
     {
+        level++;
+        _enemySpeed += _enemySpeedFactor;
         StartCoroutine(RestartGameField());
     }
 
@@ -91,6 +94,7 @@ public class GameController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            _gameField.RestartBall();
             _gameField.GetAim().PrepareToFire();
         }
 
