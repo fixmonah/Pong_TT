@@ -18,4 +18,23 @@ public class Ball : MonoBehaviour
         force *= speed;
         _rigidbody.AddForce(force);
     }
+    
+    private void OnCollisionEnter(Collision other)
+    {
+        Target hitTarget = other.gameObject.GetComponent<Target>();
+        if (hitTarget != null)
+        {
+            _rigidbody.isKinematic = true;
+            _rigidbody.isKinematic = false;
+            gameObject.SetActive(false);
+        }
+        
+        Enemy hitEnemy = other.gameObject.GetComponent<Enemy>();
+        if (hitEnemy != null)
+        {
+            _rigidbody.isKinematic = true;
+            _rigidbody.isKinematic = false;
+            gameObject.SetActive(false);
+        }
+    }
 }
