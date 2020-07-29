@@ -22,6 +22,9 @@ public class GameController : MonoBehaviour
     [Header("Game Settings")] 
     [SerializeField] private float _ballSpeedFactor;
     [SerializeField] private float _maxDistanceFromAimToTarget;
+    [SerializeField] private float _enemySpeed;
+    [SerializeField] private float _enemySpeedMinimum;
+    [SerializeField] private float _enemySpeedFactor;
     [Header("Link")] 
     [SerializeField] private GameField _gameField;
     [SerializeField] private Camera _camera;
@@ -29,6 +32,18 @@ public class GameController : MonoBehaviour
 
     #region Getter/Setter
 
+    public float GetEnemySpeed()
+    {
+        return _enemySpeed;
+    }
+    public float GetEnemySpeedMinimum()
+    {
+        return _enemySpeedMinimum;
+    }
+    public float GetEnemySpeedFactor()
+    {
+        return _enemySpeedFactor;
+    }
     public float GetMaxDistanceFromAimToTarget()
     {
         return _maxDistanceFromAimToTarget;
@@ -54,7 +69,23 @@ public class GameController : MonoBehaviour
         
     }
 
-    
+    public void EnemyHitBall()
+    {
+        _gameField.RestartBall();
+    }
+
+    public void AllTargetDown()
+    {
+        StartCoroutine(RestartGameField());
+    }
+
+    IEnumerator RestartGameField()
+    {
+        //yield return new WaitForSeconds(1f);
+        yield return new WaitForEndOfFrame();
+        _gameField.RestartGameField();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -68,6 +99,4 @@ public class GameController : MonoBehaviour
             _gameField.GetAim().Fire();
         }
     }
-
-
 }

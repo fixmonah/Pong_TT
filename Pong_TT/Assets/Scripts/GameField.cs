@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.WSA.Input;
 
 public class GameField : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public class GameField : MonoBehaviour
     [SerializeField] private Ball _ball;
     [SerializeField] private Enemy _enemy;
 
+    private int targetCount = 3;
+    private int targetCountDefault = 3;
+    
     #region MyRegion
 
     public Aim GetAim()
@@ -32,5 +36,60 @@ public class GameField : MonoBehaviour
     void Update()
     {
         
+    }
+
+
+    public void TargetGetHit()
+    {
+        targetCount--;
+        CheckTarget();
+    }
+
+    public void CheckTarget()
+    {
+        if (targetCount <= 0)
+        {
+            GameController.instance.AllTargetDown();
+        }
+        else
+        {
+            RestartBall();
+        }
+    }
+
+    public void RestartBall()
+    {
+        _ball.GetComponent<Rigidbody>().isKinematic = true;
+        _ball.transform.position = _ballDefaultPoint.position;
+        _ball.GetComponent<Rigidbody>().isKinematic = false;
+        _ball.gameObject.SetActive(true);
+        RestartAim();
+    }
+
+    private void RestartAim()
+    {
+        _aim.transform.position = _AimDefaultPoint.position;
+        _aim.gameObject.SetActive(true);
+    }
+
+    public void RestartEnemy()
+    {
+        _enemy.transform.position = _enemyDefaultPoint.position;
+    }
+
+    public void RestartTarget()
+    {
+        _target1.SetActive(true);
+        _target2.SetActive(true);
+        _target3.SetActive(true);
+
+        targetCount = targetCountDefault;
+    }
+
+    public void RestartGameField()
+    {
+        RestartTarget();
+        RestartBall();
+        RestartEnemy();
     }
 }
