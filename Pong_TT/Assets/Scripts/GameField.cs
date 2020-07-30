@@ -16,7 +16,7 @@ public class GameField : MonoBehaviour
     private int targetCount = 3;
     private int targetCountDefault = 3;
     
-    #region MyRegion
+    #region Getter / Setter
 
     public Aim GetAim()
     {
@@ -28,24 +28,18 @@ public class GameField : MonoBehaviour
     }
 
     #endregion
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
 
     public void TargetGetHit()
     {
         targetCount--;
         CheckTarget();
+    }
+    
+    public void RestartGameField()
+    {
+        RestartTarget();
+        RestartBall();
+        RestartEnemy();
     }
 
     public void CheckTarget()
@@ -87,12 +81,5 @@ public class GameField : MonoBehaviour
         _target3.SetActive(true);
 
         targetCount = targetCountDefault;
-    }
-
-    public void RestartGameField()
-    {
-        RestartTarget();
-        RestartBall();
-        RestartEnemy();
     }
 }

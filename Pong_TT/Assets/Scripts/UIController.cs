@@ -12,27 +12,25 @@ public class UIController : MonoBehaviour
     
     [SerializeField] private Text levelLabel;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        levelLabel.text = String.Format($"Level: {GameController.instance.GetLevel()}");
+        levelLabel.text = string.Format($"Level: {GameController.instance.GetLevel()}");
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (StartGame.activeSelf)
-            {
-                CloseProgram();
-            }
-            else
-            {
-                Pause.SetActive(true);
-            }
+            PauseOrExit();
+        }
+    }
+
+    private void PauseOrExit()
+    {
+        if (StartGame.activeSelf)
+        {
+            CloseProgram();
+        }
+        else
+        {
+            Pause.SetActive(true);
         }
     }
 

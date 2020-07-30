@@ -11,21 +11,21 @@ public class Aim : MonoBehaviour
     private bool _moveFlag;
     private RaycastHit _raycastHit;
     private float _distanceToBall;
-    private float _maxDistanceFromAimToTarget;
-    private Vector3 _arrowLocaleScaleBefore;
+    private float _maxDistanceFromAimToBall;
+    private Vector3 _arrowLocaleScaleAtStart;
     private Vector3 _positionBeforeFire;
 
     private void Start()
     {
         _distanceToBall = Vector3.Distance(_ball.transform.position, transform.position);
-        _arrowLocaleScaleBefore = transform.localScale;
-        _sprite.transform.localScale = _arrowLocaleScaleBefore * _distanceToBall * 0.2f;
+        _arrowLocaleScaleAtStart = transform.localScale;
+        _sprite.transform.localScale = _arrowLocaleScaleAtStart * _distanceToBall * 0.2f;
     }
 
     public void PrepareToFire()
     {
         _camera = GameController.instance.GetCamera();
-        _maxDistanceFromAimToTarget = GameController.instance.GetMaxDistanceFromAimToTarget();
+        _maxDistanceFromAimToBall = GameController.instance.GetMaxDistanceFromAimToTarget();
         _positionBeforeFire = transform.position;
         _moveFlag = true;
     }
@@ -55,10 +55,10 @@ public class Aim : MonoBehaviour
 
         _distanceToBall = Vector3.Distance(_ball.transform.position, newPoint);
         
-        if (_distanceToBall < _maxDistanceFromAimToTarget)
+        if (_distanceToBall < _maxDistanceFromAimToBall)
         {
             transform.position = newPoint;
-            _sprite.transform.localScale = _arrowLocaleScaleBefore * _distanceToBall * 0.2f;
+            _sprite.transform.localScale = _arrowLocaleScaleAtStart * _distanceToBall * 0.2f;
         }
     }
 

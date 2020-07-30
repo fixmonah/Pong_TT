@@ -21,6 +21,7 @@ public class Ball : MonoBehaviour
     
     private void OnCollisionEnter(Collision other)
     {
+        // collision with "Target"
         Target hitTarget = other.gameObject.GetComponent<Target>();
         if (hitTarget != null)
         {
@@ -29,6 +30,7 @@ public class Ball : MonoBehaviour
             gameObject.SetActive(false);
         }
         
+        // collision with "Enemy"
         Enemy hitEnemy = other.gameObject.GetComponent<Enemy>();
         if (hitEnemy != null)
         {

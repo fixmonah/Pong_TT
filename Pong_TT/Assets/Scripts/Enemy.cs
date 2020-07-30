@@ -9,7 +9,6 @@ public class Enemy : MonoBehaviour
     private bool _resetPosition;
     private Vector3 _newPosition;
     
-    // Start is called before the first frame update
     void Start()
     {
         _defaultPosition = transform.position;
